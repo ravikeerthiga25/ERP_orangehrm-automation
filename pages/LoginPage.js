@@ -15,14 +15,17 @@ class LoginPage {
 
   }
 
-  async navigate() {
+ async navigate() {
 
-    await this.page.goto(
-      'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
-    );
+  await this.page.goto(
+    'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+    {
+      waitUntil: "domcontentloaded",
+      timeout: 60000
+    }
+  );
 
-  }
-
+}
   async login(username, password) {
 
     await this.page.fill(
