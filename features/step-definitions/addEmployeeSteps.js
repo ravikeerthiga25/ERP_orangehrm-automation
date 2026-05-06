@@ -1,13 +1,16 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 const { LoginPage } = require("../../pages/LoginPage");
 const { expect } = require("@playwright/test");
-
+const config = require("../../config/config");
 let loginPage;
 
 Given("user logs into OrangeHRM", async function () {
   loginPage = new LoginPage(this.page);
   await loginPage.navigate();
-  await loginPage.login("Admin", "admin123");
+await loginPage.login(
+  config.username,
+  config.password
+);
 });
 
 When("user navigates to PIM", async function () {
@@ -28,9 +31,19 @@ When("user enters employee details", async function () {
   await this.page.fill('input[name="firstName"]', firstName);
   await this.page.fill('input[name="lastName"]', lastName);
 
+  // Wait for save button to be ready and click it
   await this.page.click('button:has-text("Save")');
+  
+  // Wait for navigation after save
+  await this.page.waitForNavigation({ waitUntil: 'load', timeout: 60000 });
 });
 
 Then("employee should be added successfully", async function () {
-  await this.page.waitForSelector('h6:has-text("Personal Details")');
+
+  const url = this.page.url();
+
+  console.log("Current URL:", url);
+
+  expect(url).toContain("viewPersonalDetails");
+
 });

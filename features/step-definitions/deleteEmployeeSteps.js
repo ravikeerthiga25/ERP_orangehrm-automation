@@ -1,10 +1,22 @@
-const { When, Then } = require("@cucumber/cucumber");
+const { When, Then } =
+  require("@cucumber/cucumber");
+
+const { DeleteEmployeePage } =
+  require("../../pages/DeleteEmployeePage");
+
+let deleteEmployeePage;
 
 When("user deletes an employee", async function () {
-  await this.page.click('.oxd-icon-button i.bi-trash');
-  await this.page.click('button:has-text("Yes, Delete")');
+
+  deleteEmployeePage =
+    new DeleteEmployeePage(this.page);
+
+  await deleteEmployeePage.deleteEmployee();
+
 });
 
 Then("employee should be removed", async function () {
-  await this.page.waitForTimeout(2000);
-});   
+
+  await deleteEmployeePage.verifyEmployeeDeleted();
+
+});

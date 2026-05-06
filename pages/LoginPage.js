@@ -1,34 +1,72 @@
 class LoginPage {
+
   constructor(page) {
+
     this.page = page;
 
-    this.usernameInput = 'input[name="username"]';
-    this.passwordInput = 'input[name="password"]';
-    this.loginButton = 'button[type="submit"]';
-    this.dashboardHeader = 'h6:has-text("Dashboard")';
+    this.usernameInput =
+      'input[name="username"]';
 
-    this.profileIcon = '.oxd-userdropdown-tab';
-    this.logoutButton = 'a:has-text("Logout")';
+    this.passwordInput =
+      'input[name="password"]';
+
+    this.loginButton =
+      'button[type="submit"]';
+
   }
 
   async navigate() {
-    await this.page.goto('https://opensource-demo.orangehrmlive.com');
+
+    await this.page.goto(
+      'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+    );
+
   }
 
   async login(username, password) {
-    await this.page.fill(this.usernameInput,username);
-    await this.page.fill(this.passwordInput,password);
-    await this.page.click(this.loginButton);
+
+    await this.page.fill(
+      this.usernameInput,
+      username
+    );
+
+    await this.page.fill(
+      this.passwordInput,
+      password
+    );
+
+    await this.page.click(
+      this.loginButton
+    );
+
+  }
+
+  async verifyInvalidLogin() {
+
+    await this.page.waitForSelector(
+      ".oxd-alert-content-text"
+    );
+
   }
 
   async verifyDashboard() {
-    await this.page.waitForSelector(this.dashboardHeader);
+
+    await this.page.waitForURL(/dashboard/, {
+      timeout: 60000
+    });
+
   }
 
   async logout() {
-    await this.page.click(this.profileIcon);
-    await this.page.click(this.logoutButton);
+
+    // Click on the user profile dropdown (top right)
+    await this.page.click('.oxd-userdropdown-tab');
+    
+    // Click logout option
+    await this.page.click('a:has-text("Logout")');
+
   }
+
 }
 
 module.exports = { LoginPage };
