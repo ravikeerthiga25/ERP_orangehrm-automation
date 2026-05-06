@@ -10,6 +10,6 @@ module.exports = {
       "json:reports/cucumber-report.json"
     ],
 
-    publishQuiet: true
+
   }
 };
