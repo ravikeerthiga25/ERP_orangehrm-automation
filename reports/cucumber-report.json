@@ -1,0 +1,465 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "add-employee;add-new-employee",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Add new employee",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 7226707499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user logs into OrangeHRM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12174622800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user navigates to PIM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1885849699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user clicks add employee",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1307737399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "user enters employee details",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5499780499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "employee should be added successfully",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5150700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 141768799
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "add-employee",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Add Employee",
+    "tags": [],
+    "uri": "features\\addEmployee.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "delete-employee;delete-an-employee",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Delete an employee",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 322361899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user logs into OrangeHRM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7846089500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user navigates to PIM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2140128499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user deletes an employee",
+            "match": {
+              "location": "features\\step-definitions\\deleteEmployeeSteps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2190069299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "employee should be removed",
+            "match": {
+              "location": "features\\step-definitions\\deleteEmployeeSteps.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 871817599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 96756700
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "delete-employee",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Delete Employee",
+    "tags": [],
+    "uri": "features\\deleteEmployee.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "invalid-login;login-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login with invalid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 296618600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user is on the login page",
+            "match": {
+              "location": "features\\step-definitions\\invalidLoginSteps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6212091899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user enters invalid username \"wrongUser\" and password \"wrongPass\"",
+            "match": {
+              "location": "features\\step-definitions\\invalidLoginSteps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1680294800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user clicks the login button",
+            "match": {
+              "location": "features\\step-definitions\\invalidLoginSteps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 356199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "error message should be displayed",
+            "match": {
+              "location": "features\\step-definitions\\invalidLoginSteps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 494670500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 105714200
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "invalid-login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Invalid Login",
+    "tags": [],
+    "uri": "features\\invalidLogin.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "orangehrm-login-feature;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Successful login with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 306302299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "User launches OrangeHRM application",
+            "match": {
+              "location": "features\\step-definitions\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4979753700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "User enters valid username and password",
+            "match": {
+              "location": "features\\step-definitions\\login.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2078347999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "User should see the dashboard",
+            "match": {
+              "location": "features\\step-definitions\\login.steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103603899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "User logs out",
+            "match": {
+              "location": "features\\step-definitions\\login.steps.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1815803700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 104495500
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "orangehrm-login-feature",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "OrangeHRM Login Feature",
+    "tags": [],
+    "uri": "features\\login.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "search-employee;search-employee-by-name",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Search employee by name",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 312072599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user logs into OrangeHRM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8053841899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "user navigates to PIM",
+            "match": {
+              "location": "features\\step-definitions\\addEmployeeSteps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2236501800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user searches for employee \"John\"",
+            "match": {
+              "location": "features\\step-definitions\\searchEmployeeSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 981360000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "employee results should be displayed",
+            "match": {
+              "location": "features\\step-definitions\\searchEmployeeSteps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 300707999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 97281900
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-employee",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Search Employee",
+    "tags": [],
+    "uri": "features\\searchEmployee.feature"
+  }
+]

@@ -1,9 +1,15 @@
 module.exports = {
   default: {
     require: [
-      'features/step-definitions/*.js',
-      'support/*.js'
+      "support/hooks.js",
+      "features/step-definitions/*.js"
     ],
-    format: ['progress']
+
+    format: [
+      "progress",
+      "json:reports/cucumber-report.json"
+    ],
+
+    publishQuiet: true
   }
 };
