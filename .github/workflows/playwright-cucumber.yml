@@ -1,35 +1,78 @@
 name: Playwright Cucumber Tests
 
+permissions:
+  contents: write
+
 on:
-  push:
-    branches:
-      - develop
+  #push:
+    #branches: [main, master]
+  pull_request:
+    branches: [main, master]
+env:
+  BASE_URL: https://opensource-demo.orangehrmlive.com
 
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
+          cache: "npm"
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Allure2 CucumberJS Reporter
+        run: npm install --save-dev @shelex/cucumberjs-allure2-reporter
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Tests and Generate Report
-        run: npm run test:report
+      - name: Run Playwright Cucumber tests
+        run: npx cucumber-js
 
-      - name: Upload HTML Report
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
+
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          allure generate allure-results -o allure-report --clean || true
+
+      - name: Debug Allure Files
+        if: always()
+        run: |
+          echo "===== ROOT ====="
+          ls -la
+          echo "===== ALLURE RESULTS ====="
+          ls -la allure-results || echo "No allure-results found"
+          echo "===== ALLURE REPORT ====="
+          ls -la allure-report || echo "No allure-report found"
+
+      - name: Upload Allure Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cucumber-html-report
-          path: reports/html-report
+          name: allure-report
+          path: allure-report/
+          retention-days: 30
+
+      - name: Deploy Allure Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report

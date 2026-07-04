@@ -25,9 +25,10 @@ Given(
 Then(
   "API response status should be 200",
   async function () {
-
-    expect(response.status)
-      .toBe(200);
-
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.data)).toBe(true);
+    expect(response.data.length).toBeGreaterThan(0);
+    expect(response.data[0]).toHaveProperty('id');
+    expect(response.data[0]).toHaveProperty('email');
   }
 );

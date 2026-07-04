@@ -1,7 +1,6 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
 
-const { LoginPage } =
-  require("../../pages/LoginPage");
+const { LoginPage } = require("../../pages/LoginPage");
 
 let loginPage;
 
